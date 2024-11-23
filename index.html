@@ -164,15 +164,129 @@ const urls = [
   'https://sketch.metademolab.com',
   'https://chirper.ai',
   'https://www.playarti.com',
+  'https://quickdraw.withgoogle.com/'
+];
+
+ 
+
+const urls = [
+  'https://thesecatsdonotexist.com',
+  'https://www.thiswaifudoesnotexist.net',
+  'https://selfie2anime.com',
+  'https://www.whichfaceisreal.com/results.php',
+  'https://thisresumedoesnotexist.com',
+  'https://play.gptgame.app',
+  'https://askmarcus.ai',
+  'https://meme.koll.ai',
+  'https://chessgpt.ai',
+  'https://isitmadeup.com',
+  'https://rickandmortify.com',
+  'https://www.textbff.com',
+  'https://rappingai.com',
+  'https://www.infiniteconversation.com',
+  'https://www.oddvibe.com',
+  'https://philosophy.fyi',
+  'https://punchlines.ai',
+  'https://www.prankgpt.com',
+  'https://eternal.ai',
+  'https://www.fantoons.xyz',
+  'https://excuses.ai',
+  'https://www.memecam.io',
+  'https://namegeneratorplus.com',
+  'https://www.askoracle.ai',
+  'https://theseabsdontexist.vercel.app',
+  'https://www.automatedcombat.com',
+  'https://trivai.app',
+  'https://www.messengerx.io/ghengis-khan',
+  'https://artistinterview.ai',
+  'https://www.jedigpt.ai',
+  'https://cosmicwhisperai.com',
+  'https://booom.ai',
+  'https://extrapolate.app',
+  'https://jokelub.com',
+  'https://aisays.vercel.app',
+  'https://www.ismywiferight.com',
+  'https://dailydadjoke.app',
+  'https://www.tindericebreaker.com',
+  'https://www.autodraw.com',
+  'https://www.aiwizard.ai/spellbook',
+  'https://sketch.metademolab.com/canvas',
+  'https://www.gptgame.app',
+  'https://chat.openai.com/g/g-bHaNPc9EV-cartoonify-me',
+  'https://chat.openai.com/g/g-wkmOq6AxG-emoji-generator',
+  'https://icons8.com/swapper',
+  'https://beta.character.ai',
+  'https://boredhumans.com',
+  'https://melobytes.com/en/apps',
+  'https://waifulabs.com/generate',
+  'https://thishousedoesnotexist.org',
+  'https://interiorai.com',
+  'http://evenstranger.pw',
+  'https://experiments.withgoogle.com/ai/ai-duet/view/',
+  'https://affinelayer.com/pixsrv/',
+  'https://thisxdoesnotexist.com',
+  'https://artsexperiments.withgoogle.com/poemportraits',
+  'https://shadowart.withgoogle.com/?lang=en-us#',
+  'https://deepbeat.org',
+  'https://www.myheritage.nl/deep-nostalgia',
+  'https://freddiemeter.withyoutube.com',
+  'https://cyborg.tenso.rs',
+  'https://research.google.com/semantris/',
+  'https://thispersondoesnotexist.com',
+  'https://replika.com',
+  'https://books.google.com/talktobooks/',
+  'https://fontjoy.com',
+  'https://thing-translator.appspot.com',
+  'https://rytr.me',
+  'https://www.craiyon.com',
+  'https://fakeyou.com',
+  'https://www.wordtune.com',
+  'https://maskr.ai',
+  'https://facefiesta.io',
+  'https://piano-genie.glitch.me',
+  'https://ourbabyai.com',
+  'https://gptriddle.com',
+  'https://epicmusicquiz.com',
+  'https://xenova-doodle-dash.static.hf.space/index.html',
+  'https://www.outfitsai.com',
+  'https://vocalremover.org',
+  'https://replicate.com/lambdal/text-to-pokemon',
+  'https://ai-bingo.lipsumar.io',
+  'https://www.ainamedmypet.com',
+  'https://www.aiisajoke.com',
+  'https://charades.ai',
+  'https://generated.photos/human-generator/',
+  'https://drawnby.ai',
+  'https://www.cat-gpt.com/',
+  'https://caricaturer.io/',
+  'https://humanornot.so',
+  'https://helixngc7293.itch.io/yandere-ai-girlfriend-simulator',
+  'https://sketch.metademolab.com',
+  'https://chirper.ai',
+  'https://www.playarti.com',
   'https://deepart.io',
   'https://quickdraw.withgoogle.com/'
 ];
 
-    document.getElementById('linkbutton').addEventListener('click', () => {
-        event.preventDefault(); // Prevent default anchor click behavior
-        const randomUrl = urls[Math.floor(Math.random() * urls.length)];
-        window.open(randomUrl, '_blank'); // Open the URL in a new tab
-            });
+
+    document.getElementById('linkbutton').addEventListener('click', (event) => {
+      event.preventDefault(); // Prevent default anchor click behavior
+      
+      if (urls.length === 0) {
+          alert('No more URLs to visit.');
+          return;
+      }
+    
+      const randomIndex = Math.floor(Math.random() * urls.length);
+      const randomUrl = urls[randomIndex];
+    
+      // Open the URL in a new tab
+      window.open(randomUrl, '_blank');
+    
+      // Remove the visited URL from the array
+      urls.splice(randomIndex, 1);
+    });
+    
   </script>
 </body>
 </html>
