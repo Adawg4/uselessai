@@ -168,23 +168,11 @@ const urls = [
 ];
 
 
-    document.getElementById('linkbutton').addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default anchor click behavior
-      
-      if (urls.length === 0) {
-          alert('No more URLs to visit.');
-          return;
-      }
-    
-      const randomIndex = Math.floor(Math.random() * urls.length);
-      const randomUrl = urls[randomIndex];
-    
-      // Open the URL in a new tab
-      window.open(randomUrl, '_blank');
-    
-      // Remove the visited URL from the array
-      urls.splice(randomIndex, 1);
-    });
+ document.getElementById('linkbutton').addEventListener('click', () => {
+        event.preventDefault(); // Prevent default anchor click behavior
+        const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+        window.open(randomUrl, '_blank'); // Open the URL in a new tab
+            });
     
   </script>
 </body>
