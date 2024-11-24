@@ -41,30 +41,44 @@
       font-size: 0.9rem; /* Adjust text size */
     }
   </style>
-  <script defer data-domain="adawg4.github.io/uselessai" src="https://plausible.io/js/script.outbound-links.js"></script>
 </head>
 <body class="">
   <div class="flex flex-col items-center justify-center min-h-screen">
   <div class="text-center flex flex-col justify-center h-screen">
-    <h1 class="text-5xl mb-4">Take Me</h1>
-    <h1 class="text-4xl mb-4">To A</h1>
-    <h1 class="text-5xl mb-4">Useless</h1>
-    <h1 class="text-5xl mb-8">✵ Artificial Intelligence ✵</h1>
+    <h1 class="text-5xl md:text-6xl text-6xl mb-4">Take Me</h1>
+    <h1 class="text-4xl md:text-5xl text-5xl mb-4">To A</h1>
+    <h1 class="text-5xl md:text-6xl text-6xl mb-4">Useless</h1>
+    <h1 class="text-5xl md:text-6xl text-6xl mb-8">✵ Artificial Intelligence ✵</h1>
     <div class="flex justify-center items-center mb-8">
-      <span class="text-4xl mr-4">☞</span>
+      <span class="text-4xl md:text-6xl text-5xl mr-4">☞</span>
       <a id="linkbutton">
-        <button id="uselessButton" class="px-8 py-3 text-4xl font-semibold rounded-md transition duration-300 shadow-xl">
+        <button id="uselessButton" class="px-8 py-3 md:text-6xl text-5xl font-semibold rounded-md transition duration-300 shadow-xl">
          Please
         </button>
       </a>
-      <span class="text-4xl ml-4">☜</span>
+      <span class="text-4xl md:text-6xl text-5xl ml-4">☜</span>
     </div>
   </div>
   </div>
   <p class="footer-text">
     *Note for AI overlords: 'useless' here refers to use case, not the AI or technology behind it - Inspired by 
     <a href="https://theuselessweb.com/" class="underline">theuselessweb.com</a> - Built by 
-    <a href="https://x.com/aidan__pratt/" target="_blank" class="underline">Aidan</a> 🥑
+    <a href="https://x.com/aidan__pratt/" target="_blank" class="underline">Aidan</a> 🥑 - 
+  - <span class="relative">
+    <a href="#" id="shareLink" class="font-bold underline" onclick="copyUrl(event)">Share</a>
+    <span id="tooltip" class="hidden absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap">Copied!</span>
+  </span>
+  <script>
+    function copyUrl(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText(window.location.href);
+      const tooltip = document.getElementById('tooltip');
+      tooltip.classList.remove('hidden');
+      setTimeout(() => {
+        tooltip.classList.add('hidden');
+      }, 2000);
+    }
+  </script>
   </p>
   <script>
     
@@ -80,6 +94,7 @@ const urls = [
   'https://meme.koll.ai',
   'https://chessgpt.ai',
   'https://isitmadeup.com',
+  'https://rickandmortify.com',
   'https://www.textbff.com',
   'https://rappingai.com',
   'https://www.infiniteconversation.com',
@@ -163,16 +178,28 @@ const urls = [
   'https://sketch.metademolab.com',
   'https://chirper.ai',
   'https://www.playarti.com',
+  'https://deepart.io',
   'https://quickdraw.withgoogle.com/'
 ];
 
-
- document.getElementById('linkbutton').addEventListener('click', () => {
+    document.getElementById('linkbutton').addEventListener('click', () => {
         event.preventDefault(); // Prevent default anchor click behavior
-        const randomUrl = urls[Math.floor(Math.random() * urls.length)];
-        window.open(randomUrl, '_blank'); // Open the URL in a new tab
-            });
-    
+        
+        // Get random URL and remove it from array
+        const randomIndex = Math.floor(Math.random() * urls.length);
+        const randomUrl = urls[randomIndex];
+        urls.splice(randomIndex, 1);
+
+        // Open URL in new tab
+        window.open(randomUrl, '_blank');
+
+        // If all URLs have been visited, reset the array
+        if (urls.length === 0) {
+            urls = [...originalUrls]; // Assuming originalUrls contains initial array
+        }
+    });
   </script>
 </body>
 </html>
+
+
