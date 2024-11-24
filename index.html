@@ -61,7 +61,7 @@
     </div>
   </div>
   </div>
-  <p class="footer-text">
+  <p class="footer-text text-lg">
     *Note for AI overlords: 'useless' here refers to use case, not the AI or technology behind it - Inspired by 
     <a href="https://theuselessweb.com/" class="underline">theuselessweb.com</a> - Built by 
     <a href="https://x.com/aidan__pratt/" target="_blank" class="underline">Aidan</a> 🥑 - 
@@ -187,22 +187,22 @@ const urls = [
   'https://quickdraw.withgoogle.com/'
 ];
 
-    document.getElementById('linkbutton').addEventListener('click', () => {
-        event.preventDefault(); // Prevent default anchor click behavior
-        
-        // Get random URL and remove it from array
-        const randomIndex = Math.floor(Math.random() * urls.length);
-        const randomUrl = urls[randomIndex];
-        urls.splice(randomIndex, 1);
+document.getElementById('linkbutton').addEventListener('click', () => {
+    event.preventDefault(); // Prevent default anchor click behavior
+    
+    // Get random URL and remove it from array
+    const randomIndex = Math.floor(Math.random() * urls.length);
+    const randomUrl = urls[randomIndex];
+    urls.splice(randomIndex, 1);
 
-        // Open URL in new tab
-        window.open(randomUrl, '_blank');
+    // Open URL in new tab
+    window.open(randomUrl, '_blank');
 
-        // If all URLs have been visited, reset the array
-        if (urls.length === 0) {
-            urls = [...originalUrls]; // Assuming originalUrls contains initial array
-        }
-    });
+    // If all URLs have been visited, reset the array
+    if (urls.length === 0) {
+        urls = [...originalUrls]; // Assuming originalUrls contains initial array
+    }
+});
   </script>
 </body>
 </html>
